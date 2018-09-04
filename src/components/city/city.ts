@@ -17,8 +17,8 @@ export class City {
     let url = createUrl(apixuUrlParams, newCity);
 
     this.http.get(url)
-    .then(response => {
-      console.log(response)
+    .then(success => {
+      console.log(success)
     });
     console.log('New city - ', newCity);
   }
