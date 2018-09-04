@@ -1,3 +1,11 @@
 <template>
-    <h3>${cityName}</h3>
+  <require from="./city.css"></require>
+
+  <section class="city-section">
+    <md-card title=${value}>
+      <select md-select="label: Select a city" value.two-way="name">
+        <option repeat.for="city of cities">${city}</option>
+      </select>
+    </md-card>
+  </section>
 </template>
