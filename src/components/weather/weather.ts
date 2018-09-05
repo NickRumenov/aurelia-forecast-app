@@ -10,6 +10,7 @@ export class Weather {
   @observable private conditionText: string = '';
   private subscription: object;
   private bindingEngine: BindingEngine;
+  private celsius: number;
 
   constructor(bindingEngine, private http: HttpClient) {
     this.bindingEngine = bindingEngine;
@@ -38,8 +39,10 @@ export class Weather {
     .then(success => {
       let response = JSON.parse(success.response);
       let { icon, text }= response.current.condition;
+      let { temp_c } = response.current;
       this.weatherIcon = icon;
       this.conditionText = text;
+      this.celsius = temp_c;
     });
   }
 }

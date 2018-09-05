@@ -7,8 +7,8 @@
   display: flex;
 }
 
-#condition-text{
+.condition-text{
   font-size: 18px;
   text-align: center;
-  margin: 16px 0;
+  margin: 16px 5px;
 }
