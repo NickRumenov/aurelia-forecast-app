@@ -13,13 +13,13 @@ export class City {
   }
 
   nameChanged(newCity, oldValue) {
-    let { apixuUrlParams } = config;
+    /*let { apixuUrlParams } = config;
     let url = createUrl(apixuUrlParams, newCity);
 
     this.http.get(url)
     .then(success => {
       console.log(success)
     });
-    console.log('New city - ', newCity);
+    console.log('New city - ', newCity);*/
   }
 }
