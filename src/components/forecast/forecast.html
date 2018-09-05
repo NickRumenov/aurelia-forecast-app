@@ -8,6 +8,12 @@
       </div>
       <img src=${day.forecast.day.condition.icon}><br>
       <div class="forecast-text">${day.forecast.day.condition.text}</div>
+      <div>
+        <span class="text-color-blue">${day.forecast.day.mintemp_c}°</span>/
+        <span class="text-color-red">${day.forecast.day.maxtemp_c}°</span>
+        <br>
+        <span>Max wind: ${day.forecast.day.maxwind_kph}kph</span>
+      </div>
     </md-card>
   </div>
 </template>
