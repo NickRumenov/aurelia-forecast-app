@@ -6,9 +6,10 @@ import {HttpClient} from "aurelia-http-client";
 
 export class Weather {
   static inject = [BindingEngine, HttpClient];
-  @observable weatherIcon: string = '//cdn.apixu.com/weather/64x64/day/116.png';
-  subscription;
-  bindingEngine;
+  @observable private weatherIcon: string = '';
+  @observable private conditionText: string = '';
+  private subscription: object;
+  private bindingEngine: BindingEngine;
 
   constructor(bindingEngine, private http: HttpClient) {
     this.bindingEngine = bindingEngine;
@@ -16,6 +17,7 @@ export class Weather {
 
   created(view){
     let cityModel = view.controllers[0].viewModel;
+    this.fetchCurrWeathForCity(cityModel.name);
 
     this.subscription = this.bindingEngine
       .propertyObserver(cityModel, 'name')
@@ -25,17 +27,19 @@ export class Weather {
   }
 
   handleCityNameChanges(newCity){
-    this.fetchCityData(newCity)
+    this.fetchCurrWeathForCity(newCity)
   }
 
-  fetchCityData(newCity){
+  fetchCurrWeathForCity(newCity){
     let { apixuUrlParams } = config;
     let url = createUrl(apixuUrlParams, newCity);
 
     this.http.get(url)
     .then(success => {
-      console.log(success)
+      let response = JSON.parse(success.response);
+      let { icon, text }= response.current.condition;
+      this.weatherIcon = icon;
+      this.conditionText = text;
     });
-    console.log('New city - ', newCity);
   }
 }

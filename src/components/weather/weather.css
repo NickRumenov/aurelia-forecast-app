@@ -2,3 +2,13 @@
   width: 80%;
   margin: 0 5%;
 }
+
+.current-condition{
+  display: flex;
+}
+
+#condition-text{
+  font-size: 18px;
+  text-align: center;
+  margin: 16px 0;
+}
