@@ -6,3 +6,13 @@
 #forecast-date{
   text-align: center;
 }
+.forecast-card{
+  min-width: 20%;
+  min-height: 245px;
+  height: 245px;
+  width: 20%;
+  padding: 2%;
+}
+.forecast-text{
+  height: 50px;
+}

@@ -1,11 +1,13 @@
 <template>
   <require from="./forecast.css"></require>
 
-  <div class="row" id="forecast-section">
-    <md-card id="forecast-date" class="col s3" title=${day.format('dddd')} repeat.for="day of forecastDays">
+  <div id="forecast-section">
+    <md-card id="forecast-date" class="forecast-card" title=${day.format('dddd')} repeat.for="day of forecastDays">
       <div id="forecast-date">
         ${day.format('L')}
       </div>
+      <img src=${day.forecast.day.condition.icon}><br>
+      <div class="forecast-text">${day.forecast.day.condition.text}</div>
     </md-card>
   </div>
 </template>

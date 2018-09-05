@@ -1,8 +1,8 @@
 import { observable } from 'aurelia-binding';
-import { default as config } from '../../config';
 import {BindingEngine, inject} from 'aurelia-framework';
-import { createUrl } from '../../utils';
 import {HttpClient} from "aurelia-http-client";
+import { default as config } from '../../config';
+import { createUrl } from '../../utils';
 
 export class Weather {
   static inject = [BindingEngine, HttpClient];
@@ -32,8 +32,8 @@ export class Weather {
   }
 
   fetchCurrWeathForCity(newCity){
-    let { apixuUrlParams } = config;
-    let url = createUrl(apixuUrlParams, newCity);
+    let { apixuWeatherUrlParams } = config;
+    let url = createUrl(apixuWeatherUrlParams, newCity);
 
     this.http.get(url)
     .then(success => {
