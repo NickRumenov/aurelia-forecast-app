@@ -11,6 +11,7 @@ export class Weather {
   private subscription: object;
   private bindingEngine: BindingEngine;
   private celsius: number;
+  private feelsLike: string;
 
   constructor(bindingEngine, private http: HttpClient) {
     this.bindingEngine = bindingEngine;
@@ -39,10 +40,11 @@ export class Weather {
     .then(success => {
       let response = JSON.parse(success.response);
       let { icon, text }= response.current.condition;
-      let { temp_c } = response.current;
+      let { temp_c, feelslike_c } = response.current;
       this.weatherIcon = icon;
       this.conditionText = text;
       this.celsius = temp_c;
+      this.feelsLike = feelslike_c;
     });
   }
 }
