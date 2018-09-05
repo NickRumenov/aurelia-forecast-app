@@ -9,13 +9,10 @@ export class Weather {
   @observable private weatherIcon: string = '';
   @observable private conditionText: string = '';
   private subscription: object;
-  private bindingEngine: BindingEngine;
   private celsius: number;
   private feelsLike: string;
 
-  constructor(bindingEngine, private http: HttpClient) {
-    this.bindingEngine = bindingEngine;
-  }
+  constructor(private bindingEngine: BindingEngine, private http: HttpClient) {}
 
   created(view){
     let cityModel = view.controllers[0].viewModel;

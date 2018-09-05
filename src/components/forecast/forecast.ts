@@ -1,8 +1,8 @@
+import { HttpClient } from "aurelia-http-client";
+import { BindingEngine, inject } from 'aurelia-framework';
 import * as moment from 'moment';
 import { default as config } from '../../config';
 import { createUrl } from '../../utils';
-import { HttpClient } from "aurelia-http-client";
-import { BindingEngine, inject } from 'aurelia-framework';
 
 export class Forecast {
   static inject = [BindingEngine, HttpClient];
@@ -10,8 +10,7 @@ export class Forecast {
   private forecastDays: any[] = [];
   private forecastDaysCount = config.forecast.countOfDays;
 
-  constructor(private bindingEngine: BindingEngine, private http: HttpClient) {
-  }
+  constructor(private bindingEngine: BindingEngine, private http: HttpClient) {}
 
   created(view){
     let cityModel = view.controllers[0].viewModel;
@@ -47,7 +46,6 @@ export class Forecast {
 
         for (let i = 0; i < this.forecastDaysCount; i++) {
           this.forecastDays[i].forecast = response.forecast.forecastday[i];
-          console.log(this.forecastDays[i]);
         }
     });
   }
