@@ -17,6 +17,7 @@
     "aurelia-validation": "^1.2.2",
     "bluebird": "^3.5.1",
     "materialize-css": "^1.0.0-rc.2",
+    "moment": "^2.22.2",
     "tslib": "^1.9.3"
   },
   "peerDependencies": {},

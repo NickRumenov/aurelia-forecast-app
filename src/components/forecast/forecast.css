@@ -1,0 +1,8 @@
+#forecast-section{
+  width: 80%;
+  margin: 0 5%;
+  display: flex;
+}
+#forecast-date{
+  text-align: center;
+}

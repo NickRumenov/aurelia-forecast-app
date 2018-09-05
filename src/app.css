@@ -3,7 +3,8 @@ body {
 }
 
 #header {
-  margin: 0 auto;
+  font-size: 40px;
+  margin: 15px auto;
   position: relative;
   color: tomato;
   width: 40%;

@@ -1,0 +1,11 @@
+<template>
+  <require from="./forecast.css"></require>
+
+  <div class="row" id="forecast-section">
+    <md-card id="forecast-date" class="col s3" title=${day.format('dddd')} repeat.for="day of forecastDays">
+      <div id="forecast-date">
+        ${day.format('L')}
+      </div>
+    </md-card>
+  </div>
+</template>

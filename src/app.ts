@@ -1,3 +1,3 @@
 export class App {
-  message = 'Aurelia';
+  message = 'Aurelia ForeCast';
 }

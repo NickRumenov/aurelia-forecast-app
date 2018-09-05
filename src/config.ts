@@ -11,5 +11,8 @@ export default {
     "keys": [
       {"key":"key", "value": "0f74ff777312470994165948180409"}
     ]
+  },
+  forecast: {
+    countOfDays: 5
   }
 }
