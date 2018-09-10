@@ -15,10 +15,10 @@ export class Forecast {
   created(view){
     let cityModel = view.controllers[0].viewModel;
     this.forecastDays = this.getNextFiveDays();
-    this.fetchForecast(cityModel.name);
+    this.fetchForecast(cityModel.cityName);
 
     this.subscription = this.bindingEngine
-      .propertyObserver(cityModel, 'name')
+      .propertyObserver(cityModel, 'cityName')
       .subscribe((newValue) => {
         this.handleCityNameChanges(newValue)
       });

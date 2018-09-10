@@ -2,6 +2,6 @@ import { observable } from 'aurelia-binding';
 import { default as config } from '../../config';
 
 export class City {
-  @observable private name: string = 'Sofia';
+  @observable private cityName: string = 'Sofia';
   private cities: (string)[] = config.cities;
 }

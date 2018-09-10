@@ -17,10 +17,10 @@ export class Weather {
 
   created(view){
     let cityModel = view.controllers[0].viewModel;
-    this.fetchCurrWeathForCity(cityModel.name);
+    this.fetchCurrWeathForCity(cityModel.cityName);
 
     this.subscription = this.bindingEngine
-      .propertyObserver(cityModel, 'name')
+      .propertyObserver(cityModel, 'cityName')
       .subscribe((newValue) => {
         this.handleCityNameChanges(newValue)
     });
