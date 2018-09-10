@@ -7,7 +7,7 @@ import {createUrl} from '../../utils';
 
 @inject(BindingEngine, HttpClient)
 export class Weather {
-  @bindable public cityName: string;
+  @bindable cityName: string;
   @observable private weatherIcon: string = '';
   @observable private conditionText: string = '';
   private subscription: object;

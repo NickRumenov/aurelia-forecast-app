@@ -7,9 +7,9 @@ import {createUrl} from '../../utils';
 
 @inject(BindingEngine, HttpClient)
 export class Forecast {
-  @bindable public cityName: string;
+  @bindable cityName: string;
   private subscription: object;
-  private forecastDays: any[] = this.getNextFiveDays();
+  private forecastDays: any[] = [];
   private forecastDaysCount = config.forecast.countOfDays;
 
   constructor(private bindingEngine: BindingEngine, private http: HttpClient) {
