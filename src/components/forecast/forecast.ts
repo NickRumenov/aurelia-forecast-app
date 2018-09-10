@@ -1,39 +1,37 @@
-import { HttpClient } from "aurelia-http-client";
-import { BindingEngine, inject } from 'aurelia-framework';
+import {HttpClient} from "aurelia-http-client";
+import {BindingEngine, inject} from 'aurelia-framework';
 import * as moment from 'moment';
-import { default as config } from '../../config';
-import { createUrl } from '../../utils';
+import {default as config} from '../../config';
+import {createUrl} from '../../utils';
+import {bindable} from "aurelia-typed-observable-plugin";
 
 @inject(BindingEngine, HttpClient)
 export class Forecast {
+  @bindable public cityName: string;
   private subscription: object;
-  private forecastDays: any[] = [];
+  private forecastDays: any[] = this.getNextFiveDays();
   private forecastDaysCount = config.forecast.countOfDays;
 
-  constructor(private bindingEngine: BindingEngine, private http: HttpClient) {}
-
-  created(view){
-    let cityModel = view.controllers[0].viewModel;
+  constructor(private bindingEngine: BindingEngine, private http: HttpClient) {
     this.forecastDays = this.getNextFiveDays();
-    this.fetchForecast(cityModel.cityName);
-
     this.subscription = this.bindingEngine
-      .propertyObserver(cityModel, 'cityName')
-      .subscribe((newValue) => {
-        this.handleCityNameChanges(newValue)
+      .propertyObserver(this, 'cityName')
+      .subscribe((selectedCity) => {
+        this.handleCityNameChanges(selectedCity)
       });
   }
 
-  handleCityNameChanges(newCity){
-    this.fetchForecast(newCity)
+  handleCityNameChanges(selectedCity) {
+    this.fetchForecast(selectedCity)
   }
 
-  getNextFiveDays(){
+  getNextFiveDays() {
+    let days = [];
     for (var i = 0; i < this.forecastDaysCount; i++) {
       let day = moment().add(i, 'days');
-      this.forecastDays.push(day);
+      days.push(day);
     }
-    return this.forecastDays;
+    return days;
   }
 
   fetchForecast(selectedCity) {
@@ -47,6 +45,6 @@ export class Forecast {
         for (var i = 0; i < this.forecastDaysCount; i++) {
           this.forecastDays[i].forecast = response.forecast.forecastday[i];
         }
-    });
+      });
   }
 }

@@ -1,11 +1,13 @@
 import { observable } from 'aurelia-binding';
-import {BindingEngine, inject} from 'aurelia-framework';
-import {HttpClient} from "aurelia-http-client";
+import { BindingEngine, inject } from 'aurelia-framework';
+import { HttpClient } from "aurelia-http-client";
+import { bindable } from "aurelia-typed-observable-plugin";
 import { default as config } from '../../config';
 import { createUrl } from '../../utils';
 
+@inject(BindingEngine, HttpClient)
 export class Weather {
-  static inject = [BindingEngine, HttpClient];
+  @bindable public cityName: string;
   @observable private weatherIcon: string = '';
   @observable private conditionText: string = '';
   private subscription: object;
@@ -13,26 +15,20 @@ export class Weather {
   private feelsLike: string;
 
   constructor(private bindingEngine: BindingEngine, private http: HttpClient) {
-  }
-
-  created(view){
-    let cityModel = view.controllers[0].viewModel;
-    this.fetchCurrWeathForCity(cityModel.cityName);
-
     this.subscription = this.bindingEngine
-      .propertyObserver(cityModel, 'cityName')
-      .subscribe((newValue) => {
-        this.handleCityNameChanges(newValue)
+      .propertyObserver(this, 'cityName')
+      .subscribe((selectedCity) => {
+        this.handleCityNameChanges(selectedCity)
     });
   }
 
-  handleCityNameChanges(newCity){
-    this.fetchCurrWeathForCity(newCity)
+  handleCityNameChanges(selectedCity){
+    this.fetchCurrWeathForCity(selectedCity)
   }
 
-  fetchCurrWeathForCity(newCity){
+  fetchCurrWeathForCity(selectedCity){
     let { apixuWeatherUrlParams } = config;
-    let url = createUrl(apixuWeatherUrlParams, newCity);
+    let url = createUrl(apixuWeatherUrlParams, selectedCity);
 
     this.http.get(url)
     .then(success => {
