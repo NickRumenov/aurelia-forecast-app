@@ -4,8 +4,8 @@ import * as moment from 'moment';
 import { default as config } from '../../config';
 import { createUrl } from '../../utils';
 
+@inject(BindingEngine, HttpClient)
 export class Forecast {
-  static inject = [BindingEngine, HttpClient];
   private subscription: object;
   private forecastDays: any[] = [];
   private forecastDaysCount = config.forecast.countOfDays;
@@ -44,7 +44,7 @@ export class Forecast {
       .then(success => {
         let response = JSON.parse(success.response);
 
-        for (let i = 0; i < this.forecastDaysCount; i++) {
+        for (var i = 0; i < this.forecastDaysCount; i++) {
           this.forecastDays[i].forecast = response.forecast.forecastday[i];
         }
     });

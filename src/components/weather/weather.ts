@@ -12,7 +12,8 @@ export class Weather {
   private celsius: number;
   private feelsLike: string;
 
-  constructor(private bindingEngine: BindingEngine, private http: HttpClient) {}
+  constructor(private bindingEngine: BindingEngine, private http: HttpClient) {
+  }
 
   created(view){
     let cityModel = view.controllers[0].viewModel;

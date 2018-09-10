@@ -1,4 +1,7 @@
 export default {
+  "forecast": {
+    "countOfDays": 5
+  },
   "mainTitle": "Aurelia Forecast",
   "cities" : [
     "Sofia",
@@ -20,10 +23,7 @@ export default {
     "url": "http://api.apixu.com/v1/forecast.json?",
     "keys": [
       {"key":"key", "value": "0f74ff777312470994165948180409"},
-      {"key":"days", "value": "5"}
+      {"key":"days", "value": 5}
     ]
-  },
-  "forecast": {
-    "countOfDays": 5
   }
 }
