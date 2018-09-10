@@ -3,16 +3,18 @@
 
   <div id="forecast-section">
     <md-card id="forecast-date" class="forecast-card" title=${day.format('dddd')} repeat.for="day of forecastDays">
-      <div id="forecast-date">
-        ${day.format('L')}
-      </div>
-      <img src=${day.forecast.day.condition.icon}><br>
-      <div class="forecast-text">${day.forecast.day.condition.text}</div>
-      <div>
-        <span class="text-color-blue">${day.forecast.day.mintemp_c}°</span>/
-        <span class="text-color-red">${day.forecast.day.maxtemp_c}°</span>
-        <br>
-        <span>Max wind: ${day.forecast.day.maxwind_kph}kph</span>
+      <div class="card-wrapper">
+        <div id="forecast-date">
+          ${day.format('L')}
+        </div>
+        <img src=${day.forecast.day.condition.icon}><br>
+        <div class="forecast-text">${day.forecast.day.condition.text}</div>
+        <div>
+          <span class="text-color-blue">${day.forecast.day.mintemp_c}°</span>/
+          <span class="text-color-red">${day.forecast.day.maxtemp_c}°</span>
+          <br>
+          <span>Max wind: ${day.forecast.day.maxwind_kph}kph</span>
+        </div>
       </div>
     </md-card>
   </div>
