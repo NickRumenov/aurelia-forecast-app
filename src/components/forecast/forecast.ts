@@ -38,13 +38,18 @@ export class Forecast {
     let {apixuForecastUrlParams} = config;
     let url = createUrl(apixuForecastUrlParams, selectedCity);
 
-    this.http.get(url)
-      .then(success => {
-        let response = JSON.parse(success.response);
+    let promise = new Promise((resolve, reject) => {
 
-        for (var i = 0; i < this.forecastDaysCount; i++) {
-          this.forecastDays[i].forecast = response.forecast.forecastday[i];
-        }
-      });
+        this.http.get(url)
+        .then(success => {
+          let response = JSON.parse(success.response);
+          for (var i = 0; i < this.forecastDaysCount; i++) {
+            this.forecastDays[i].forecast = response.forecast.forecastday[i];
+          }
+          resolve(response);
+        });
+    });
+
+    return promise;
   }
 }

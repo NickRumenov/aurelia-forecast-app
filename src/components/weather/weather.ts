@@ -30,15 +30,19 @@ export class Weather {
     let {apixuWeatherUrlParams} = config;
     let url = createUrl(apixuWeatherUrlParams, selectedCity);
 
-    this.http.get(url)
-      .then(success => {
-        let response = JSON.parse(success.response);
-        let {icon, text} = response.current.condition;
-        let {temp_c, feelslike_c} = response.current;
-        this.weatherIcon = icon;
-        this.conditionText = text;
-        this.celsius = temp_c;
-        this.feelsLike = feelslike_c;
-      });
+    let promise = new Promise((resolve, reject) => {
+      this.http.get(url)
+        .then(success => {
+          let response = JSON.parse(success.response);
+          let {icon, text} = response.current.condition;
+          let {temp_c, feelslike_c} = response.current;
+          this.weatherIcon = icon;
+          this.conditionText = text;
+          this.celsius = temp_c;
+          this.feelsLike = feelslike_c;
+          resolve(response);
+        });
+    });
+    return promise;
   }
 }
