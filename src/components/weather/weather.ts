@@ -23,7 +23,14 @@ export class Weather {
   }
 
   handleCityNameChanges(selectedCity) {
-    this.fetchCurrWeathForCity(selectedCity)
+    this.fetchCurrWeathForCity(selectedCity).then(currentWeather=>{
+      let {icon, text} = currentWeather['current'].condition;
+      let {temp_c, feelslike_c} = currentWeather['current'];
+      this.weatherIcon = icon;
+      this.conditionText = text;
+      this.celsius = temp_c;
+      this.feelsLike = feelslike_c;
+    })
   }
 
   fetchCurrWeathForCity(selectedCity) {
@@ -34,12 +41,6 @@ export class Weather {
       this.http.get(url)
         .then(success => {
           let response = JSON.parse(success.response);
-          let {icon, text} = response.current.condition;
-          let {temp_c, feelslike_c} = response.current;
-          this.weatherIcon = icon;
-          this.conditionText = text;
-          this.celsius = temp_c;
-          this.feelsLike = feelslike_c;
           resolve(response);
         });
     });

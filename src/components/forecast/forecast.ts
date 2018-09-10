@@ -22,7 +22,11 @@ export class Forecast {
   }
 
   handleCityNameChanges(selectedCity) {
-    this.fetchForecast(selectedCity)
+    this.fetchForecast(selectedCity).then(data =>{
+      for (var i = 0; i < this.forecastDaysCount; i++) {
+        this.forecastDays[i].forecast = data['forecast'].forecastday[i];
+      }
+    })
   }
 
   getNextFiveDays() {
@@ -39,13 +43,9 @@ export class Forecast {
     let url = createUrl(apixuForecastUrlParams, selectedCity);
 
     let promise = new Promise((resolve, reject) => {
-
         this.http.get(url)
         .then(success => {
           let response = JSON.parse(success.response);
-          for (var i = 0; i < this.forecastDaysCount; i++) {
-            this.forecastDays[i].forecast = response.forecast.forecastday[i];
-          }
           resolve(response);
         });
     });
