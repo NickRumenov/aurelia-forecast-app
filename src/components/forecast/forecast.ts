@@ -1,9 +1,9 @@
 import {HttpClient} from "aurelia-http-client";
 import {BindingEngine, inject} from 'aurelia-framework';
+import {bindable} from "aurelia-typed-observable-plugin";
 import * as moment from 'moment';
 import {default as config} from '../../config';
 import {createUrl} from '../../utils';
-import {bindable} from "aurelia-typed-observable-plugin";
 
 @inject(BindingEngine, HttpClient)
 export class Forecast {

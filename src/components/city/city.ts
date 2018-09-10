@@ -1,5 +1,5 @@
-import { default as config } from '../../config';
-import { bindable } from "aurelia-typed-observable-plugin";
+import {default as config} from '../../config';
+import {bindable} from "aurelia-typed-observable-plugin";
 
 export class City {
   @bindable public cityName: string = 'Sofia';
