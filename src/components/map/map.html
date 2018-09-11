@@ -1,0 +1,10 @@
+<template class="bulgarian-map">
+  <require from="./map.css"></require>
+
+  <div class="jsmaps">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" style="overflow: hidden; position: relative; left: -0.2px;"
+         viewBox="0 0 700.4 463.5" preserveAspectRatio="xMinYMin" click.trigger="onMapClick($event.target)">
+      <path fill=${area.color} name=${area.city} repeat.for="area of areas" d=${area.coords}></path>
+    </svg>
+  </div>
+</template>
