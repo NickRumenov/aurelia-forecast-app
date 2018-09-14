@@ -8,7 +8,7 @@ import {createUrl} from '../../utils';
 @inject(BindingEngine, HttpClient)
 export class Forecast {
   @bindable cityName: string;
-  private subscription: object;
+  private subscription;
   private forecastDays: any[] = [];
   private forecastDaysCount = config.forecast.countOfDays;
 
@@ -22,7 +22,7 @@ export class Forecast {
   }
 
   detached(){
-    //TODO unsubscribe !!!
+    this.subscription.dispose();
   }
 
   handleCityNameChanges(selectedCity) {

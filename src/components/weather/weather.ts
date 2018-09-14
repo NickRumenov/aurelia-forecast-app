@@ -10,7 +10,7 @@ export class Weather {
   @bindable cityName: string;
   @observable private weatherIcon: string = '';
   @observable private conditionText: string = '';
-  private subscription: object;
+  private subscription;
   private celsius: number;
   private feelsLike: string;
 
@@ -23,7 +23,7 @@ export class Weather {
   }
 
   detached(){
-    //TODO unsubscribe !!!
+    this.subscription.dispose();
   }
 
   handleCityNameChanges(selectedCity) {
