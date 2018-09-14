@@ -6,7 +6,6 @@ export class Map {
   @bindable cityName: string;
 
   onMapClick(area){
-    //this.cityName = area.name;
-    console.log(area.name);
+    this.cityName = area.name;
   }
 }
