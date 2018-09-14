@@ -3,5 +3,5 @@ import {bindable} from "aurelia-typed-observable-plugin";
 
 export class Selector {
   @bindable cityName: string;
-  private cities: (string)[] = config.cities;
+  private areas: (object)[] = config.areas;
 }
