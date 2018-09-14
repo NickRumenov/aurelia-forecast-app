@@ -22,6 +22,10 @@ export class Weather {
       });
   }
 
+  detached(){
+    //TODO unsubscribe !!!
+  }
+
   handleCityNameChanges(selectedCity) {
     this.fetchCurrWeathForCity(selectedCity).then(currentWeather=>{
       let {icon, text} = currentWeather['current'].condition;

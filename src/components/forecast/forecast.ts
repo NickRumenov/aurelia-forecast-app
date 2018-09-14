@@ -21,6 +21,10 @@ export class Forecast {
       });
   }
 
+  detached(){
+    //TODO unsubscribe !!!
+  }
+
   handleCityNameChanges(selectedCity) {
     this.fetchForecast(selectedCity).then(data =>{
       for (var i = 0; i < this.forecastDaysCount; i++) {
