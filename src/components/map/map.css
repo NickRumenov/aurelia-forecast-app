@@ -1,6 +1,13 @@
-.bulgarian-map{
+.map-wrapper{
   width: 55%;
   margin: 0 auto;
   grid-row: auto / span 3;
   grid-column: auto / span 2;
+}
+.map{
+  cursor: pointer;
+}
+.area:hover{
+  stroke: tomato;
+  fill: tomato;
 }

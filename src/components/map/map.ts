@@ -8,4 +8,8 @@ export class Map {
   onMapClick(area){
     this.cityName = area.name;
   }
+
+  onMapHover(){
+    console.log('hov')
+  }
 }
