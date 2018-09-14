@@ -1,5 +1,5 @@
 import {bindable} from "aurelia-typed-observable-plugin";
 
-export class Current {
+export class City {
   @bindable cityName: string = 'Sofia';
 }

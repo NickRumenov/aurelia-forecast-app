@@ -1,9 +1,22 @@
 .weather-section {
   margin-left: 20%;
+}
+.condition{
   display: flex;
 }
 .condition-text{
   font-size: 18px;
   text-align: center;
   margin: 16px 5px;
+}
+
+/*
+* Overrides of aurelia materialize theme classic
+* TODO find better way to do it
+*/
+.card{
+  margin: 0;
+}
+.card-content{
+  padding: 18px !important;
 }

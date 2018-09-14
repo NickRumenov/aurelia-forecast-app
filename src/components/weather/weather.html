@@ -1,9 +1,14 @@
 <template>
   <require from="./weather.css"></require>
 
-  <div title="Current Condition" class="weather-section current-condition">
-    <img src=${weatherIcon}>
-    <span class="condition-text">${conditionText}:</span>
-    <span class="condition-text">${celsius}C°&nbsp;-&nbsp;Feels like: ${feelsLike}C°</span>
-  </div>
+  <md-card title="Current Condition" class="weather-section">
+    <div class="condition">
+      <img src=${weatherIcon}>
+      <div>
+        <span class="condition-text">${conditionText}: ${celsius}C°</span>
+        <br>
+        <span class="condition-text">Feels like: ${feelsLike}C°</span>
+      </div>
+    </div>
+  </md-card>
 </template>

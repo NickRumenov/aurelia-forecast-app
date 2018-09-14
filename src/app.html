@@ -3,14 +3,14 @@
   <require from="./components/weather/weather"></require>
   <require from="./components/forecast/forecast"></require>
   <require from="./components/map/map"></require>
-  <require from="./components/current/current"></require>
+  <require from="./components/city/city"></require>
   <require from="./components/headline/headline"></require>
   <require from="./app.css"></require>
   <require from="materialize-css/dist/css/materialize.css"></require>
 
   <div class="main-grid">
     <headline></headline>
-    <current city-name.two-way="cityName"></current>
+    <city city-name.two-way="cityName"></city>
     <map city-name.two-way="cityName"></map>
     <selector city-name.two-way="cityName"></selector>
     <weather city-name.one-way="cityName"></weather>
