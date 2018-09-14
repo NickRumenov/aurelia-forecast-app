@@ -1,4 +1,4 @@
-<template>
+<template class="forecast-wrapper">
   <require from="./forecast.css"></require>
 
   <div id="forecast-section">
@@ -8,7 +8,7 @@
           ${day.format('L')}
         </div>
         <img src=${day.forecast.day.condition.icon}><br>
-        <div class="forecast-text">${day.forecast.day.condition.text}</div>
+        <span class="forecast-text">${day.forecast.day.condition.text}</span>
         <div>
           <span class="text-color-blue">${day.forecast.day.mintemp_c}°</span>/
           <span class="text-color-red">${day.forecast.day.maxtemp_c}°</span>

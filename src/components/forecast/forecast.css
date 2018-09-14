@@ -1,17 +1,17 @@
+.forecast-wrapper{
+  grid-column: auto / span 3;
+}
 #forecast-section{
-  width: 80%;
   margin: 0 5%;
   display: flex;
 }
-#forecast-date{
-  text-align: center;
-}
 .forecast-card{
+  text-align: center;
   min-width: 20%;
   min-height: 245px;
   height: 245px;
   width: 20%;
-  padding: 2%;
+  padding: 1% 2%;
 }
 .forecast-text{
   height: 50px;

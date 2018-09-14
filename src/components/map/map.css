@@ -1,5 +1,6 @@
 .bulgarian-map{
-  width: 450px;
-  height: 310px;
-  margin-left: 15%;
+  width: 55%;
+  margin: 0 auto;
+  grid-row: auto / span 3;
+  grid-column: auto / span 2;
 }

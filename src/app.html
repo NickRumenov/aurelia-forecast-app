@@ -1,18 +1,19 @@
 <template>
-  <require from = "./components/city/city"></require>
-  <require from = "./components/weather/weather"></require>
-  <require from = "./components/forecast/forecast"></require>
-  <require from = "./components/map/map"></require>
-  <require from = "./app.css"></require>
+  <require from="./components/selector/selector"></require>
+  <require from="./components/weather/weather"></require>
+  <require from="./components/forecast/forecast"></require>
+  <require from="./components/map/map"></require>
+  <require from="./components/current/current"></require>
+  <require from="./components/headline/headline"></require>
+  <require from="./app.css"></require>
   <require from="materialize-css/dist/css/materialize.css"></require>
 
-  <div id="wrapper">
-      <h1 id="header">${title}</h1>
-  </div>
-  <div class="city-wrapper">
-    <city city-name.two-way="cityName"></city>
+  <div class="main-grid">
+    <headline></headline>
+    <current city-name.two-way="cityName"></current>
     <map city-name.two-way="cityName"></map>
+    <selector city-name.two-way="cityName"></selector>
+    <weather city-name.one-way="cityName"></weather>
+    <forecast city-name.one-way="cityName"></forecast>
   </div>
-  <weather city-name.one-way="cityName"></weather>
-  <forecast city-name.one-way="cityName"></forecast>
 </template>

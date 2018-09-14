@@ -1,0 +1,8 @@
+.header-wrapper{
+  grid-column: auto / span 3;
+}
+h3{
+  text-align: center;
+  color: tomato;
+  margin: 10px;
+}

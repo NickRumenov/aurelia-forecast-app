@@ -1,15 +1,9 @@
-body {
+body{
   font-family: Helvetica, Arial, sans-serif;
   background-color: ghostwhite;
 }
-#header {
-  font-size: 40px;
-  margin: 15px auto;
-  position: relative;
-  color: tomato;
-  width: 40%;
-  text-align: center;
-}
-.city-wrapper{
-  display: flex;
+.main-grid{
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: repeat(auto-fill, minmax(25%, 1fr) ) ;
 }

@@ -1,0 +1,9 @@
+<template>
+  <require from="./selector.css"></require>
+
+  <md-card class="input-wrapper">
+    <select md-select="label: Select a city" value.two-way="cityName">
+      <option repeat.for="city of cities">${city}</option>
+    </select>
+  </md-card>
+</template>

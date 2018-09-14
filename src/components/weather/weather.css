@@ -1,12 +1,7 @@
 .weather-section {
-  width: 80%;
-  margin: 0 5%;
-}
-
-.current-condition{
+  margin-left: 20%;
   display: flex;
 }
-
 .condition-text{
   font-size: 18px;
   text-align: center;
