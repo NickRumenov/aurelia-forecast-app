@@ -13,7 +13,7 @@ export class Forecast {
   private forecastDaysCount = config.forecast.countOfDays;
 
   constructor(private bindingEngine: BindingEngine, private http: HttpClient) {
-    this.forecastDays = this.getNextFiveDays();
+    this.forecastDays = this.getNextDaysForForecast();
     this.subscription = this.bindingEngine
       .propertyObserver(this, 'cityName')
       .subscribe((selectedCity) => {
@@ -33,7 +33,7 @@ export class Forecast {
     })
   }
 
-  getNextFiveDays() {
+  getNextDaysForForecast() {
     let days = [];
     for (var i = 0; i < this.forecastDaysCount; i++) {
       let day = moment().add(i, 'days');

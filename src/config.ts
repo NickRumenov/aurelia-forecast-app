@@ -14,7 +14,7 @@ export default {
     ]
   },
   "forecast": {
-    "countOfDays": 5
+    "countOfDays": 5 //TODO Combine this number with the number above
   },
   "areas": [
     {
