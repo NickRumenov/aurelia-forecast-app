@@ -8,6 +8,6 @@
   cursor: pointer;
 }
 .area:hover{
-  stroke: tomato;
-  fill: tomato;
+  stroke: dimgrey;
+  fill: dimgrey;
 }

@@ -5,11 +5,7 @@ export class Map {
   areas: object[] = mapConfig.areas;
   @bindable cityName: string;
 
-  onMapClick(area){
-    this.cityName = area.name;
-  }
-
-  onMapHover(){
-    console.log('hov')
+  onMapClick({name}){
+    this.cityName = name;
   }
 }
